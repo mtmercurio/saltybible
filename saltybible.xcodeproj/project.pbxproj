@@ -11,6 +11,8 @@
 		A4BDCDAC29844254002A865C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDCDAB29844254002A865C /* ContentView.swift */; };
 		A4BDCDAE29844255002A865C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4BDCDAD29844255002A865C /* Assets.xcassets */; };
 		A4BDCDB129844255002A865C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4BDCDB029844255002A865C /* Preview Assets.xcassets */; };
+		A4BDCDB929897886002A865C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDCDB829897886002A865C /* Theme.swift */; };
+		A4BDCDBB298978D0002A865C /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDCDBA298978D0002A865C /* Reading.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		A4BDCDAB29844254002A865C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A4BDCDAD29844255002A865C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4BDCDB029844255002A865C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A4BDCDB829897886002A865C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		A4BDCDBA298978D0002A865C /* Reading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,7 @@
 		A4BDCDA829844254002A865C /* saltybible */ = {
 			isa = PBXGroup;
 			children = (
+				A4BDCDB729897866002A865C /* Models */,
 				A4BDCDA929844254002A865C /* saltybibleApp.swift */,
 				A4BDCDAB29844254002A865C /* ContentView.swift */,
 				A4BDCDAD29844255002A865C /* Assets.xcassets */,
@@ -65,6 +70,15 @@
 				A4BDCDB029844255002A865C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A4BDCDB729897866002A865C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A4BDCDB829897886002A865C /* Theme.swift */,
+				A4BDCDBA298978D0002A865C /* Reading.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +151,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4BDCDB929897886002A865C /* Theme.swift in Sources */,
 				A4BDCDAC29844254002A865C /* ContentView.swift in Sources */,
+				A4BDCDBB298978D0002A865C /* Reading.swift in Sources */,
 				A4BDCDAA29844254002A865C /* saltybibleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

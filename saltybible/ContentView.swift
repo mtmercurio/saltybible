@@ -7,20 +7,56 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+func formatDate(month: Int, day: Int) -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MMMM, d"
+    let dateComponents = DateComponents(month: month, day: day)
+    let date = Calendar.current.date(from: dateComponents) ?? Date.now
+    return dateFormatter.string(from: date)
+}
+
+func isDayComplete(readings: [Reading]) -> Bool {
+    for reading in readings {
+        if (!reading.hasRead) {
+            return false
         }
-        .padding()
+    }
+    return true
+}
+
+struct ContentView: View {
+    @State var readingPlan: [DailyReading]
+    
+    func updateReadingPlan(dayIndex: Int, readingIndex: Int) {
+        readingPlan[dayIndex].readings[readingIndex].hasRead = !readingPlan[dayIndex].readings[readingIndex].hasRead
+    }
+    
+    var body: some View {
+        List() {
+            ForEach(Array(readingPlan.enumerated()), id: \.element) { i, dailyReading in
+                if (!isDayComplete(readings: dailyReading.readings)) {
+                    Section(header: Text(formatDate(month: dailyReading.month, day: dailyReading.day))) {
+                        ForEach(Array(dailyReading.readings.enumerated()), id: \.element) { j, reading in
+                            HStack {
+                                Text(reading.title)
+                                Spacer()
+                            }
+                            .contentShape(Rectangle())
+                            .strikethrough(reading.hasRead)
+                            .onTapGesture {
+                                self.updateReadingPlan(dayIndex: i, readingIndex: j)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .listStyle(.plain)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(readingPlan: Reading.sampleReadingPlan)
     }
 }
