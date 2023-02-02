@@ -34,7 +34,8 @@ struct ContentView: View {
     var body: some View {
         List() {
             ForEach(Array(readingPlan.enumerated()), id: \.element) { i, dailyReading in
-                if (!isDayComplete(readings: dailyReading.readings)) {
+                let isPreviousDayComplete = i > 0 ? isDayComplete(readings: readingPlan[i - 1].readings) : true
+                if (!isDayComplete(readings: dailyReading.readings) && isPreviousDayComplete) {
                     Section(header: Text(formatDate(month: dailyReading.month, day: dailyReading.day))) {
                         ForEach(Array(dailyReading.readings.enumerated()), id: \.element) { j, reading in
                             HStack {
